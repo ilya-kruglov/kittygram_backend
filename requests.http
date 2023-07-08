@@ -4,7 +4,8 @@
 @host = http://127.0.0.1:8000/api/
 @user_password = secret13
 # @user_name = achekhov
-@user_name = ikruglov
+# @user_name = ikruglov
+@user_name = CORS
 
 ### Create user through API (Djoser + rest_framework.authtoken (NOT JWT))
 # @name create_user

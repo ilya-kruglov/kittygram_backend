@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework.authtoken",
     "rest_framework",
+    "corsheaders",
     "djoser",
     "cats.apps.CatsConfig",
 ]
@@ -27,11 +28,25 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+# Теперь удалите ключ CORS_ORIGIN_ALLOW_ALL, тогда он примет значение
+# по умолчанию False.
+# CORS_ORIGIN_ALLOW_ALL = True
+
+# Для ключа CORS_URLS_REGEX можно указать и несколько регулярных выражений:
+# они записываются через запятую, каждое — отдельно в кавычках.
+CORS_URLS_REGEX = r"^/api/.*$"
+
+# Адрес, с которого разрешены запросы
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
 ]
 
 ROOT_URLCONF = "kittygram_backend.urls"
